@@ -152,5 +152,10 @@
   "dailyBackups": "Καθημερινά αντίγραφα ασφαλείας",
   "bugsOfAnyKind": "Διορθωση σφαλματων κάθε είδους",
   "technicalFunctionalityOfSite": "Τεχνική λειτουργικότητα του ιστότοπου",
-  "bugResolved24H": "Επιλύμενο σφάλμα εντός  24 ωρών"
+  "bugResolved24H": "Επιλύμενο σφάλμα εντός  24 ωρών",
+  "itConsultancy": "Συμβουλευτικές υπηρεσίες πληροφορικής",
+  "10EuroPerHour": "10 Ευρώ / Ώρα",
+  "iteDevelopment": "Πληροφορική coding",
+  "softwaresApplications": "Λογισμικά / Εφαρμογές",
+  "customizedSolutions": "Προσαρμοσμένες Λύσεις"
 }
