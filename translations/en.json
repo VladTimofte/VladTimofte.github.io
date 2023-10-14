@@ -157,5 +157,15 @@
   "10EuroPerHour": "10 Euro / Hour",
   "iteDevelopment": "IT Development",
   "softwaresApplications": "Softwares / Applications",
-  "customizedSolutions": "Customized Solutions"
+  "customizedSolutions": "Customized Solutions",
+  "webApplications": "Web Applications",
+  "199EurTo6999Eur": "199 Euro - 6999 Euro",
+  "customWebApplicationDevelopment": "Custom Web Application Development",
+  "codeFromScratch": "Code from scratch",
+  "integrationWithThirdPartyServices": "Integration with Third-Party Services",
+  "suportIT": "Support IT",
+  "remoteDEsktopSupport": "Remote Desktop Support",
+  "performanceBugs": "Performance / Bugs",
+  "virusAndMalwareRemoval": "Virus and Malware Removal",
+  "1MonthToTomonths": "1 Month - 8 Months"
 }

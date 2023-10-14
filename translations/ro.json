@@ -157,5 +157,15 @@
   "10EuroPerHour": "10 Euro / Ora",
   "iteDevelopment": "Dezvoltare IT",
   "softwaresApplications": "Software-uri / Aplicații",
-  "customizedSolutions": "Soluții personalizate"
+  "customizedSolutions": "Soluții personalizate",
+  "webApplications": "Aplicații Web",
+  "199EurTo6999Eur": "199 Euro - 6999 Euro",
+  "customWebApplicationDevelopment": "Dezvoltare de aplicații web personalizate",
+  "codeFromScratch": "Cod de la zero",
+  "integrationWithThirdPartyServices": "Integrare cu servicii terțe",
+  "suportIT": "Support IT",
+  "remoteDEsktopSupport": "Suport pentru desktop la distanță",
+  "performanceBugs": "Performanță / Bug-uri",
+  "virusAndMalwareRemoval": "Eliminarea virușilor și a programelor malware",
+  "1MonthToTomonths": "1 Lună - 8 Luni"
 }

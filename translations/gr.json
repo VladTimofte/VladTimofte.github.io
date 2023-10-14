@@ -157,5 +157,15 @@
   "10EuroPerHour": "10 Ευρώ / Ώρα",
   "iteDevelopment": "Πληροφορική coding",
   "softwaresApplications": "Λογισμικά / Εφαρμογές",
-  "customizedSolutions": "Προσαρμοσμένες Λύσεις"
+  "customizedSolutions": "Προσαρμοσμένες Λύσεις",
+  "webApplications": "Εφαρμογές Ιστού",
+  "199EurTo6999Eur": "199 Ευρώ - 6999 Ευρώ",
+  "customWebApplicationDevelopment": "Ανάπτυξη προσαρμοσμένων εφαρμογών Ιστού",
+  "codeFromScratch": "Κωδικας από το 0",
+  "integrationWithThirdPartyServices": "Ενοποίηση με υπηρεσίες τρίτων",
+  "suportIT": "Υποστήριξη IT",
+  "remoteDEsktopSupport": "Υποστήριξη μέσω  απομακ. επιφ. εργασίας",
+  "performanceBugs": "Performance / Σφάλματα",
+  "virusAndMalwareRemoval": "Αφαίρεση ιών και κακόβουλου λογισμικού",
+  "1MonthToTomonths": "1 Mήνας - 8 Mήνες"
 }
