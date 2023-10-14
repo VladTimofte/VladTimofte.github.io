@@ -305,4 +305,8 @@ function loadLocalLanguageOnFirstVisit(){
   }
 }
 
+function updateURL(anchor) {
+  window.location.hash = anchor;
+}
+
 window.onload = loadLocalLanguageOnFirstVisit()
