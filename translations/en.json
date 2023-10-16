@@ -168,5 +168,14 @@
   "remoteDEsktopSupport": "Remote Desktop Support",
   "performanceBugs": "Performance / Bugs",
   "virusAndMalwareRemoval": "Virus and Malware Removal",
-  "1MonthToTomonths": "1 Month - 8 Months"
+  "1MonthToTomonths": "1 Month - 8 Months",
+  "denisaFanea": "Denisa Fanea",
+  "graphicDesignerInteriorDesigner": "Graphic Designer / Interior Designer",
+  "logosDesign": "Logos design",
+  "packingDesign": "Packaging design",
+  "visualIdentityDesign": "Visual identity design",
+  "interiorDesign": "Interior Design",
+  "brandImage": "Brand image",
+  "partnersContactTitle": "Contact",
+  "partnersPortfolioTitle": "Portfolio"
 }

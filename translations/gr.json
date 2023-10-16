@@ -168,5 +168,14 @@
   "remoteDEsktopSupport": "Υποστήριξη μέσω  απομακ. επιφ. εργασίας",
   "performanceBugs": "Performance / Σφάλματα",
   "virusAndMalwareRemoval": "Αφαίρεση ιών και κακόβουλου λογισμικού",
-  "1MonthToTomonths": "1 Mήνας - 8 Mήνες"
+  "1MonthToTomonths": "1 Mήνας - 8 Mήνες",
+  "denisaFanea": "Ντενίσα Φανεα",
+  "graphicDesignerInteriorDesigner": "Γραφίστας / Εσωτερικός Σχεδιαστής",
+  "logosDesign": "Σχεδιασμός λογότυπων (Logo)",
+  "packingDesign": "Σχεδιασμός συσκευασίας (Packaging)",
+  "visualIdentityDesign": "Σχεδιασμός οπτικής ταυτότητας",
+  "interiorDesign": "Εσωτερική διακόσμηση",
+  "brandImage": "Εικόνα του Brand",
+  "partnersContactTitle": "Επικοινωνία",
+  "partnersPortfolioTitle": "Έργα"
 }

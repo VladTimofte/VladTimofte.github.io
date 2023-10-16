@@ -1266,15 +1266,30 @@ section .container {
 }
 
 .partner-social-links {
-  width: 100%;
-  justify-content: end;
-  display: flex;
+  justify-content: center;
+  display: inline;
   gap: 10px;
+  text-align: center;
+}
+
+.partners-their-portfolio-links {
+  display: inline;
+}
+
+.partners-wrapper-links {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .partner-socila-icon {
   color: #FFFFFF;
   font-size: 18px;
+  padding: 3px;
+}
+
+.partners-sub-title-links {
+  font-size: 12px;
 }
 
 .partner-socila-icon:hover {
