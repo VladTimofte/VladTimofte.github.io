@@ -1345,3 +1345,8 @@ section .container {
 ::-webkit-scrollbar-thumb:hover {
   background: #18D26E; 
 }
+
+.upwork-icon-link {
+  width: 18px;
+  background-image: url('/assets/img/icons/upwork.svg');
+}
