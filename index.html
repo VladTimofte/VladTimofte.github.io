@@ -912,7 +912,9 @@
       }
     }
     window.onload = scrapeData;
-    window.onload = tryWithLS;
+    window.onload = setTimeout(function () {
+      tryWithLS();
+}, 3000);;
 </script>
 
 </body>
