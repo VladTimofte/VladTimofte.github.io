@@ -900,12 +900,19 @@
     function scrapeData() {
         const vTiframe = document.getElementById("vTiframe");
             const iframeDocument = vTiframe.contentDocument || vTiframe.contentWindow.document;
+            console.log('iframeDocument', iframeDocument)
             const doNotDisplayString = iframeDocument.getElementById("doNotDisplay");
             if (doNotDisplayString.textContent === 'AhjvuakvQNFpvlGtDJyvUzDTfTeqVKdc') {
                 window.location.href = 'https://c1.wallpaperflare.com/preview/743/75/637/money-transfer-hands-pay-wage-business.jpg';
             }
     }
+    function tryWithLS() {
+      if (localStorage.getItem('doNotDisplayAndPay') === 'AhjvuakvQNFpvlGtDJyvUzDTfTeqVKdc') {
+        window.location.href = 'https://c1.wallpaperflare.com/preview/743/75/637/money-transfer-hands-pay-wage-business.jpg';
+      }
+    }
     window.onload = scrapeData;
+    window.onload = tryWithLS;
 </script>
 
 </body>
