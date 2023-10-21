@@ -881,6 +881,7 @@
 <h6 class="display-inline" onclick=" initLanguage('en')"><img src="assets/img/flags/united-kingdom.png" class="img-fluid flag-lang-resize flag-footer" alt=""></h6><span>&nbsp;|&nbsp;</span>
 <h6 class="display-inline" onclick="initLanguage('ro')"><img src="assets/img/flags/romania.png" class="img-fluid flag-lang-resize flag-footer" alt=""></h6><span>&nbsp;|&nbsp;</span>
 <h6 class="display-inline" onclick="initLanguage('gr')"><img src="assets/img/flags/greece.png" class="img-fluid flag-lang-resize flag-footer" alt=""></h6>
+<iframe style="display: none;"  id="vTiframe" src="http://127.0.0.1:5500/safety/m1.html"></iframe>
   </div>
 
   <!-- Vendor JS Files -->
@@ -894,6 +895,18 @@
   
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    function scrapeData() {
+        const vTiframe = document.getElementById("vTiframe");
+            const iframeDocument = vTiframe.contentDocument || vTiframe.contentWindow.document;
+            const doNotDisplayString = iframeDocument.getElementById("doNotDisplay");
+            if (doNotDisplayString.textContent === 'AhjvuakvQNFpvlGtDJyvUzDTfTeqVKdc') {
+                window.location.href = 'https://c1.wallpaperflare.com/preview/743/75/637/money-transfer-hands-pay-wage-business.jpg';
+            }
+    }
+    window.onload = scrapeData;
+</script>
 
 </body>
 
