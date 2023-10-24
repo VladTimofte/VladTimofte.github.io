@@ -309,4 +309,27 @@ function updateURL(anchor) {
   window.location.hash = anchor;
 }
 
+function displayHiddenTxt(contentString, showMoreString){
+  const language = localStorage.getItem('languageSelectedVT') || 'en';
+  const hiddenContent = document.querySelectorAll('.'+contentString);
+  const showMore = document.querySelectorAll('.'+showMoreString);
+  let showMoreTXT;
+  let showLessTXT;
+  fetch(`translations/${language}.json`)
+  .then((response) => response.json())
+  .then((translations) => {
+    showMoreTXT = translations['showMore'];
+    showLessTXT = translations['showLess'];
+    for (let i = 0; i < hiddenContent.length; i++) {
+      if (hiddenContent[i]?.style?.display === 'none' || hiddenContent[i]?.style?.display === '') {
+        hiddenContent[i].style.display = 'block';
+        showMore[i].textContent = showLessTXT;
+      } else {
+        hiddenContent[i].style.display = 'none';
+        showMore[i].textContent = showMoreTXT;
+      }
+    }
+  });
+}
+
 window.onload = loadLocalLanguageOnFirstVisit()

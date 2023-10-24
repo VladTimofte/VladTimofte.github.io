@@ -1350,3 +1350,12 @@ section .container {
   width: 18px;
   background-image: url('/assets/img/icons/upwork.svg');
 }
+
+.hiddenContentAlexandraCulinescuFeedBack {
+  display: none;
+}
+
+.showMore:hover , .showLess:hover {
+  cursor: pointer;
+  color: #18D26E;
+}
