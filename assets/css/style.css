@@ -1358,4 +1358,5 @@ section .container {
 .showMore:hover , .showLess:hover {
   cursor: pointer;
   color: #18D26E;
+  user-select: none;
 }
