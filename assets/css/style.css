@@ -1360,3 +1360,12 @@ section .container {
   color: #18D26E;
   user-select: none;
 }
+
+.copy-icon {
+  font-size: 18px;
+}
+
+.copy-icon:hover {
+  cursor: pointer;
+  color: #18D26E;
+}

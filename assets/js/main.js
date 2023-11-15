@@ -332,4 +332,19 @@ function displayHiddenTxt(contentString, showMoreString){
   });
 }
 
+function copyToClipboard(txt) {
+  const language = localStorage.getItem('languageSelectedVT') || 'en';
+  let msg = ''
+  if (language === 'en') {
+    msg = 'Bank account has succesfully copied to clipboard'
+  }
+  if (language === 'ro') {
+    msg = 'Contul bancar (IBAN) a fost copiat cu succes.'
+  }
+  if (language === 'gr') {
+    msg = 'Ο τραπεζικός λογαριασμός αντιγράφηκε με επιτυχία'
+  }
+  alert(msg)
+}
+
 window.onload = loadLocalLanguageOnFirstVisit()
