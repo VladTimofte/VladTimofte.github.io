@@ -334,6 +334,7 @@ function displayHiddenTxt(contentString, showMoreString){
 
 function copyToClipboard(txt) {
   const language = localStorage.getItem('languageSelectedVT') || 'en';
+  navigator.clipboard.writeText(txt);
   let msg = ''
   if (language === 'en') {
     msg = 'Bank account has succesfully copied to clipboard'
