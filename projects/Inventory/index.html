@@ -93,7 +93,10 @@
                     <div id="inventoryTableWrapper">
                       <table class="table datatable" id="inventoryTable">
                         <thead>
-                          <input class="search-bar-table" placeholder="Caută" id="searchBarTableProducts" oninput="searchTable()">
+                          <div class="input-group">
+                            <input class="search-bar-table" placeholder="Introdu ..." id="searchBarTableProducts" oninput="onInputSearchTable()">
+                            <button class="search-button-table" onclick="searchTable()">Caută</button>
+                          </div>
                           <br><br>
                           <tr>
                             <th class="th-title-custom">Produs</th>

@@ -1420,3 +1420,9 @@ button {
     align-items: center !important;
   }
 }
+
+.search-button-table {
+  background: #4CAF50;
+  color: #ffffff;
+  font-weight: 600;
+}

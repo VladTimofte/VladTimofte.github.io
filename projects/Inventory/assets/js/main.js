@@ -220,7 +220,7 @@ function addOrSaveProduct() {
     productName,
     sku,
     unitPrice,
-    totalPrice: parseFloat(unitPrice * sku).toFixed(2)
+    totalPrice: parseFloat((unitPrice * sku).toFixed(2))
   }
   addOrUpdateObjectById(createdDataObj);
 
@@ -541,7 +541,7 @@ function generateTableHtml(data, nameTXT) {
 
 function getTotalPriceOfAllProducts(data) {
   const calculatedNumber = data.reduce(function (acc, obj) {
-    return acc + obj.totalPrice;
+    return acc + parseFloat(obj.totalPrice);
   }, 0);
   return parseFloat(calculatedNumber)?.toFixed(2);
 }
@@ -586,16 +586,24 @@ const filteredData = filterDataBasedOnInputSearch();
 
 }
 
+function onInputSearchTable() {
+   //LS
+   const dataFromLS = localStorage?.getItem('inventoryTable')?.length ? JSON.parse(localStorage?.getItem('inventoryTable')) : [];
+  
+   // Get input element and filter value
+   const input = document.getElementById('searchBarTableProducts').value;
+ 
+   if (!input || !Array.isArray(dataFromLS)) {
+     createTable(dataFromLS);
+   }
+}
+
 function filterDataBasedOnInputSearch() {
     //LS
     const dataFromLS = localStorage?.getItem('inventoryTable')?.length ? JSON.parse(localStorage?.getItem('inventoryTable')) : [];
   
   // Get input element and filter value
   const input = document.getElementById('searchBarTableProducts').value;
-
-  if (!input || !Array.isArray(dataFromLS)) {
-    createTable(dataFromLS);
-  }
 
   searchString = input.toLowerCase();
 
