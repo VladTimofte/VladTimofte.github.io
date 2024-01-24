@@ -596,6 +596,7 @@ function onInputSearchTable() {
    if (!input || !Array.isArray(dataFromLS)) {
      createTable(dataFromLS);
    }
+   
 }
 
 function filterDataBasedOnInputSearch() {
