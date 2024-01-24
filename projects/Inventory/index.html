@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Inventory</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between container">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class=" d-lg-block">Inventory</span>
+      </a>
+    </div><!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+          <i class="bi bi-gear padding-6px"></i>
+          <span class="d-none d-md-block padding-right-30px">Setări</span>
+        </a><!-- End Settings Icon -->
+
+      </ul>
+    </nav><!-- End Navigation -->
+
+  </div>
+
+  </header><!-- End Header -->
+
+  <main id="main" class="main container">
+
+    <section class="section" id="noPorductsSectionTxt">
+      <div class="row">
+        <div class="col-lg-12">
+           <p class="d-flex justify-content-center align-items-center no-products-txt">Nici un produs</p>
+        </div>
+      </div>
+    </section>
+
+    <div id="entireInventoryList">
+      <section class="section">
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-end align-items-end action-buttons-wrapper">
+            <button class="specific-action-button d-flex justify-content-center align-items-center" id="deleteAllProductsBtnID" onclick="confirmDeleteAllProducts()">
+              <i class="bi bi-trash-fill trash-custom-icon default-icon d-flex justify-content-center align-items-center"></i>
+              <p class="d-flex justify-content-center align-items-center padding-6px specific-action-button-txt" id="deleteAllProductsTxt">Șterge toate produsele</p>
+            </button>
+            <button class="specific-action-button d-flex justify-content-center align-items-center" onclick="askForPDFFileName()">
+              <i class="bi bi-file-earmark-pdf-fill download-pdf-icon default-icon d-flex justify-content-center align-items-center"></i>
+              <p class="d-flex justify-content-center align-items-center padding-6px specific-action-button-txt" >Descarcă PDF</p>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Entries -->
+      <section class="section">
+        <div class="row">
+          <div class="col-lg-12">
+
+              <div class="card">
+                  <div class="card-body">
+                    <!-- <h5 class="card-title">Inventories</h5> -->
+      
+                    <!-- Table with stripped rows -->
+                    <div id="inventoryTableWrapper">
+                      <table class="table datatable" id="inventoryTable">
+                        <thead>
+                          <input class="search-bar-table" placeholder="Caută" id="searchBarTableProducts" oninput="searchTable()">
+                          <br><br>
+                          <tr>
+                            <th class="th-title-custom">Produs</th>
+                            <th class="th-title-custom text-align-end">Preț total</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <!-- Those 2 td are mandatory to be here, in order not to break js rules -->
+                            <td class="td-custom bold-text" style="display: none;"></td>
+                            <td class="td-custom bold-text" style="display: none;"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- End Table with stripped rows -->
+      
+                  </div>
+                </div>
+            
+          </div>
+        </div>
+      </section><!-- End Entries -->
+    </div>
+
+    <br/>
+
+    <!-- Action -->
+    <section class="section">
+      <div class="row justify-content-center">
+
+    <button class="d-flex justify-content-center align-items-center" onclick="showCleanModal()">
+      <i class="bi bi-plus-circle-fill default-icon"></i>
+      <div class="add-new-product">
+        <p>Adaugă Nou</p>
+      </div>
+    </button>
+
+    <!-- MODAL -->
+    <div id="productModalID" class="product-modal">
+      <div class="modal-content">
+        <form class="row g-3" id="addProductForm" onsubmit="addOrSaveProduct(); return false;">
+
+          <h5 id="newProductModalTitle" class="modal-title">Produs Nou</h5>
+          <div id="newProductSuccesMessage" class="alert alert-success alert-dismissible fade show display-none width100" role="alert">
+            Produs adăugat!  Adaugă următorul
+          </div>
+          <hr>
+
+          <div class="col-md-12 form-field-custom">
+            <label class="d-flex modal-label-custom">Produs:</label>
+            <input id="productName" type="text" class="form-control" required placeholder="Nume produs">
+          </div>
+          <div class="col-md-12 form-field-custom">
+            <label class="d-flex modal-label-custom">Preț:</label>
+            <div class="input-group">
+              <input id="unitPrice" class="form-control" required placeholder="Preț / bucată" oninput="unitPriceInput(this)">
+              <div class="input-group-append">
+                <span class="input-group-text">RON</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 form-field-custom">
+            <label class="d-flex modal-label-custom">Stoc:</label>
+            <input id="sku" type="number" class="form-control" required placeholder="Cantitate" oninput="quantityProductInput(this)">
+          </div>
+          <!-- Hidden fileds. Do not un-hide them -->
+          <input id="productID" type="text" class="form-control" placeholder="ID" style="display: none !important;">
+          <input id="totalPrice" type="text" class="form-control" placeholder="Total Price" style="display: none !important;">
+
+          <hr>
+
+          <div class="d-flex justify-content-end align-items-center footer-modal-custom">
+            <div>
+              <button id="deleteProductByIdBTN" class="justify-content-center align-items-center button-footer-modal-custom btn btn-danger">
+                <i class="bi bi-trash-fill delete-product-icon d-flex justify-content-center align-items-center"></i>
+                <p class="d-flex justify-content-center align-items-center" id="deleteSingleProduct">Șterge produs</p>
+              </button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-secondary button-footer-modal-custom" onclick="closeModal()">Închide</button>
+              <button type="submit" class="btn btn-primary button-footer-modal-custom">OK</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+      </div><!-- End  Modal-->
+      </div>
+    </section><!-- End Action -->
+
+  </main><!-- End #main -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span><a target="_blank" href="https://vladtimofte.github.io">Vlad Timofte</a></span></strong>. Toate drepturile rezervate
+    </div>
+  </footer><!-- End Footer -->
+
+</html>
