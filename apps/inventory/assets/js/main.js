@@ -466,7 +466,7 @@ function deleteSingleProductConfirmation(id) {
     }, (seconds * 1000) + 1500 );
 }
 
-function generatePDF(nameTXT) {
+function generatePDF(nameTXT, device) {
   // Get input element and filter value
     const searchInput = document.getElementById('searchBarTableProducts').value;
 
@@ -480,13 +480,17 @@ function generatePDF(nameTXT) {
 
    // Generate table HTML
    const dataToBeDownloaded = !searchInput?.length ? dataFromLS : filterDataBasedOnInputSearch();
-   const tableHtml = generateTableHtml(dataToBeDownloaded, nameTXT);
+   const tableHtml = generateTableHtml(dataToBeDownloaded, nameTXT, device);
 
   // Set iFrame content
   iFrame.contentDocument.body.innerHTML = tableHtml;
 
-  // Print the iFrame content
-  iFrame.contentWindow.print();
+  if (device === 'mobile-tablet') {
+    var newWindow = window.open();
+    newWindow.document.write(iFrame.contentWindow.document.documentElement.outerHTML);
+  } else if (device ==='desktop') {
+    iFrame.contentWindow.print();
+  }
 
   // Clean up: remove the iFrame after printing
   setTimeout(() => {
@@ -494,8 +498,8 @@ function generatePDF(nameTXT) {
   }, 1000); // Adjust the delay as needed
 }
 
-function generateTableHtml(data, nameTXT) {
-  let tableHtml = '<div style="text-align: start; margin-top: 20px !important;">';
+function generateTableHtml(data, nameTXT, device) {
+  let tableHtml = '<div id="generatedHTMLTable" style="text-align: start; margin-top: 20px !important; padding-top: 20px !important">';
   const dataWithoutID = data.map(obj => {
     // Use object destructuring to remove the 'id' key
     const { id, ...rest } = obj;
@@ -503,17 +507,17 @@ function generateTableHtml(data, nameTXT) {
   });
   
   // Add custom title
-  tableHtml += `<h2>${nameTXT}</h2>`;
+  tableHtml += `<h2 style="margin: auto; width: 97%; border-collapse: collapse; font-size: ${device === 'mobile-tablet' ? '22px' : '16px'};">${nameTXT}</h2>`;
 
   // Add table with centered style
-  tableHtml += '<table style="margin: 0 auto; width: 100%; border-collapse: collapse;">';
+  tableHtml += `<table style="margin: auto; width: 97%; border-collapse: collapse; font-size: ${device === 'mobile-tablet' ? '20px' : '14px'};">`;
 
   // Add table header
   tableHtml += '<tr>';
   Object.keys(dataWithoutID[0]).forEach(key => {
     // Fix the condition here
     console.log(key)
-    tableHtml += `<th style="padding: 40px 0 30px 0; text-align: ${key === 'productName' ? 'start' : 'center'}; border-bottom: solid 1px black;">${translateWord(key)}</th>`;
+    tableHtml += `<th style="padding: 40px 0 30px 0; text-align: ${key === 'productName' ? 'start' : 'center'}; border-bottom: solid 1px black; font-size: ${device === 'mobile-tablet' ? '20px' : '14px'};">${translateWord(key)}</th>`;
   });
   tableHtml += '</tr>';
 
@@ -521,7 +525,7 @@ function generateTableHtml(data, nameTXT) {
   dataWithoutID.forEach(row => {
     tableHtml += '<tr>';
     Object.values(row).forEach((value, i) => {
-      tableHtml += `<td style="padding: 4px; text-align: ${i === 0 ? 'start' : 'center'}; border-bottom: solid 1px gray; font-size: 14px;">${value}</td>`;
+      tableHtml += `<td style="padding: 4px; text-align: ${i === 0 ? 'start' : 'center'}; border-bottom: solid 1px gray; font-size: ${device === 'mobile-tablet' ? '18px' : '12px'};">${value}</td>`;
     });
     tableHtml += '</tr>';
   });    
@@ -530,12 +534,46 @@ function generateTableHtml(data, nameTXT) {
   const customRowValues = { productName: 'TOTAL', sku: '', unitPrice: '', totalPrice: getTotalPriceOfAllProducts(data) }; 
   tableHtml += '<tr>';
   Object.values(customRowValues).forEach(value => {
-    tableHtml += `<td style="padding: 30px 0 0 0; text-align: ${value === 'TOTAL' ? 'start' : 'center'}; font-weight: 600">${value}</td>`;
+    tableHtml += `<td style="padding: 30px 0 0 0; text-align: ${value === 'TOTAL' ? 'start' : 'center'}; font-weight: 600" font-size: ${device === 'mobile-tablet' ? '24px' : '18px'};>${value}</td>`;
   });
   tableHtml += '</tr>';
 
   tableHtml += '</table>';
   tableHtml += '</div>';
+  tableHtml += `
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+        <script>
+        window.html2canvas = html2canvas;
+        window.jsPDF = window.jspdf.jsPDF;
+
+            function downloadPDF() {
+              html2canvas(document.getElementById('generatedHTMLTable'), {
+                allowTaint: true,
+                useCORS: true,
+                scale: 2
+              }).then(canvas => {
+
+                const img = canvas.toDataURL('image/png', 1.0);
+                const doc =  new jsPDF({
+                  orientation: 'portrait', // or 'landscape'
+                  unit: 'in',
+                  format: 'a4', // or other paper sizes
+                  precision: 10,
+              });
+                const imgWidth = doc.internal.pageSize.getWidth();
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+                doc.addImage(img, 'PNG', 0, 0, imgWidth, imgHeight);
+                doc.save("inventory.pdf");
+              })
+            }
+
+            alert('Apasă pe OK pentru a descarcă PDF-ul')
+            downloadPDF();
+
+  </script>`;
   return tableHtml;
 }
 
@@ -621,6 +659,24 @@ function askForPDFFileName() {
   const userInput = window.prompt("Introdu numele PDF-ului după care dorești să descarci: ");
 
   if (userInput !== null) {
-      generatePDF(userInput);
+      generatePDF(userInput, checkDeviceType());
+  }
+}
+
+function checkDeviceType() {
+  // Get the width of the screen
+  var screenWidth = window.innerWidth;
+
+  // Define the threshold values for tablet/mobile and desktop
+  var tabletThreshold = 768; // Example threshold for tablets (you can adjust this value)
+  
+  // Check if the screen width is less than the tablet threshold
+  if (screenWidth < tabletThreshold) {
+      // Device is a tablet/mobile
+      return 'mobile-tablet';
+  } else {
+      // Device is a desktop
+      return 'desktop';
+      // You can perform specific actions for desktop devices here
   }
 }
