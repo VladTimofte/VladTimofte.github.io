@@ -680,3 +680,12 @@ function checkDeviceType() {
       // You can perform specific actions for desktop devices here
   }
 }
+
+function toggleDarkMode(e) {
+  const themeStyle = document.getElementById('theme-style');
+      if (e.checked) {
+          themeStyle.href = 'assets/css/style-dark.css'; // Apply dark mode CSS
+      } else {
+          themeStyle.href = 'assets/css/style-light.css'; // Apply light mode CSS
+      }
+}
