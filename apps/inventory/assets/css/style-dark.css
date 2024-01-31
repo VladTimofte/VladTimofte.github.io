@@ -10,7 +10,7 @@ body {
 }
 
 a {
-  color: #afb7ff;
+  color: #4CAF50;
   text-decoration: none;
 }
 
@@ -396,7 +396,6 @@ h6 {
 .header .search-form input:hover {
   outline: none;
   box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
-  border: 1px solid rgba(1, 41, 112, 0.3);
 }
 
 .header .search-form {
@@ -1147,7 +1146,7 @@ h6 {
 
 .footer .copyright {
   text-align: center;
-  color: #9ec1ff;
+  color: #fff;
 }
 
 .footer .credits {
@@ -1470,6 +1469,7 @@ button {
 }
 
 input {
+  color: #fff !important;
   background: #28292B !important;
 }
 
@@ -1484,4 +1484,9 @@ button {
 
 button:hover {
   background: #242424 !important;
+}
+
+span {
+  color: #fff !important;
+  background: #28292B !important;
 }
