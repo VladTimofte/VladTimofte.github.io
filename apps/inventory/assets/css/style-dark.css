@@ -1471,6 +1471,7 @@ button {
 input {
   color: #fff !important;
   background: #28292B !important;
+  border-color: transparent !important;
 }
 
 input::placeholder {
@@ -1489,4 +1490,9 @@ button:hover {
 span {
   color: #fff !important;
   background: #28292B !important;
+  border-color: transparent !important;
+}
+
+.close-modal-btn-custom {
+  background-color: #242424 !important;
 }
