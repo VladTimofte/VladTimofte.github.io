@@ -119,6 +119,7 @@
 
   retrieveData();
   // mobileInputValidator()
+  loadDarkOrLightMode();
 
 })();
 
@@ -681,11 +682,34 @@ function checkDeviceType() {
   }
 }
 
+function loadDarkOrLightMode() {
+  const localStorageDirKey = 'currentThemeInventory'
+  const theme = localStorage?.getItem(localStorageDirKey)?.length ? localStorage?.getItem(localStorageDirKey) : '';
+  const themeStyle = document.getElementById('theme-style');
+  const switchBTN = document.getElementById('darkModeSwitch');
+
+  if (theme === 'dark') {
+    themeStyle.href = 'assets/css/style-dark.css'; // Apply dark mode CSS
+    switchBTN.checked = true;
+  } else if (theme === 'light') {
+    themeStyle.href = 'assets/css/style-light.css'; // Apply light mode CSS
+    switchBTN.checked = false;
+  } else {
+    themeStyle.href = 'assets/css/style-dark.css'; // Apply dark mode CSS
+    localStorage.setItem(localStorageDirKey, 'dark');
+    switchBTN.checked = true;
+  }
+}
+
 function toggleDarkMode(e) {
+  const localStorageDirKey = 'currentThemeInventory'
+  const theme = localStorage?.getItem(localStorageDirKey)?.length ? localStorage?.getItem(localStorageDirKey) : '';
   const themeStyle = document.getElementById('theme-style');
       if (e.checked) {
           themeStyle.href = 'assets/css/style-dark.css'; // Apply dark mode CSS
+          localStorage.setItem(localStorageDirKey, 'dark');
       } else {
           themeStyle.href = 'assets/css/style-light.css'; // Apply light mode CSS
+          localStorage.setItem(localStorageDirKey, 'light');
       }
 }
