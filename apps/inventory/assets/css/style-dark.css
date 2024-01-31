@@ -1496,3 +1496,7 @@ span {
 .close-modal-btn-custom {
   background-color: #242424 !important;
 }
+
+.site-logo-title {
+  background: transparent !important;
+}
