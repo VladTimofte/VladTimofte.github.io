@@ -200,5 +200,19 @@
   "iban": "BANK",
   "askForOffer1": "Ask For Offer",
   "askForOffer2": "Ask For Offer",
-  "askForOffer3": "Ask For Offer"
+  "askForOffer3": "Ask For Offer",
+  "categoryPresentationWebSiteBPD": "Category: Presentation Site",
+  "platformBootstrapBPD": "Framework: Bootstrap",
+  "projectDateCompletionBPD": "Project date: February, 2024",
+  "bpdProftolioDetails_0": "Here's an overview of the technical accomplishments of Ruben's Website:",
+  "bpdProftolioDetails_1": "Responsive Design: I ensured that the site is fully responsive, adapting to various screen sizes and devices. This ensures a consistent user experience across desktops, tablets, and mobile phones.",
+  "bpdProftolioDetails_2": "Bootstrap Framework: I utilized the Bootstrap framework to streamline the development process. This choice not only enhanced the site's appearance but also improved its performance and maintainability",
+  "bpdProftolioDetails_3": "Social Media Links: I included social media icons and links, making it convenient for users to connect with the individual on various platforms.",
+  "bpdProftolioDetails_4": "Hosting and Domain Setup: I assisted in the domain registration and hosting setup, ensuring a seamless deployment process.",
+  "ionelaSiAndreiTrascaNovomondo": "Ionela & Andrei Trașcă",
+  "bogdanMarinMarelePrint": "Bogdan Marin",
+  "novomondoName": "Novomondo",
+  "websiteComercial": "Comercial Website",
+  "novomondoFeedBack": "We are very satisfied with Vlad's services, he professionally and quickly solved our requirements for adding new functions to our online store. We recommend with confidence, he is very serious and dedicated. Thank you very much Vlad!",
+  "marelePrinFeedBack": "Collaboration with Vlad on front-end development was simply incredible! He skillfully solved problems that others thought impossible and did so in a short time. I gained not only new functionalities in the website, but a partner whose promises I know I can rely on. I confidently recommend Vlad's services!"
 }
