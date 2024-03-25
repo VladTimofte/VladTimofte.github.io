@@ -680,3 +680,7 @@ function checkDeviceType() {
       // You can perform specific actions for desktop devices here
   }
 }
+
+function darkMode(e) {
+  console.log(e.target.checked)
+}
