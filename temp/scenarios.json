@@ -1,0 +1,48 @@
+{
+    "scenarios": [
+      {
+        "case": "Instanta (User-ul) instaleaza pentru PRIMA data aplicatia",
+        "description": "Aplicatia nu ar trebui sa aibe access pe NICIUNUL dintre proiecte",
+        "solution": {
+          "check": "La momentul instalarii se va verifica daca aplicatia are property-ul 'isVersion5orNewer'",
+          "stepsIfMissingProperty": [
+            "Seteaza pentru fiecare proiect proprietatea 'hasAccess' pe false",
+            "Seteaza proprietatea aplicatiei 'isVersion5orNewer' pe true"
+          ],
+          "stepsIfHasProperty": [
+            "Nu face nimic. Daca aplicatia are deja proprietatea, inseamna ca a mai fost instalata, deci nu modificam setarile user-ului."
+          ]
+        }
+      },
+      {
+        "case": "Instanta (User-ul) are deja aplicatia instalata si face doar upgrade",
+        "description": "Aplicatia ar trebui sa aibe access la TOATE proiectele",
+        "solution": {
+          "check": "La momentul cand instanta (User-ul) face upgrade",
+          "steps": [
+            "Seteaza pentru toate proiectele proprietatea 'hasAccess' pe true",
+            "Seteaza proprietatea aplicatiei 'isVersion5orNewer' pe true"
+          ]
+        }
+      },
+      {
+        "case": "Instanta (User-ul) care are deja aplicatia instalata, face upgrade, o sterge iar dupa aceea o instaleaza din nou",
+        "description": "Aplicatia ar trebui sa aibe access la proiecte corespunzator",
+        "solution": {
+          "steps": [
+            "Pentru ca aplicatia are deja proprietatea 'isVersion5orNewer: true', nu va face nimic la reinstalare, ceea ce e de dorit."
+          ]
+        }
+      },
+      {
+        "case": "Instanta (User-ul) fie ca o facut upgrade, fie ca si-o ntalat aplicatia, decide ulterior sa mai adauge un proiect",
+        "description": "Aplicatia ar trebui sa nu aibe access by default",
+        "solution": {
+          "steps": [
+            "Nu face nimic. Proprietatea 'hasAccess' nu va fi setata pe proiectul recent adaugat."
+          ]
+        }
+      }
+    ]
+  }
+  
