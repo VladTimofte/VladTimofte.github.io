@@ -1381,3 +1381,16 @@ section .container {
 .ask-for-offer-services-button:hover {
   cursor: pointer;
 }
+
+.download-cv-button {
+  background-color: #18D26E;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 6px 12px;
+}
+
+.download-cv-button:hover {
+  background-color: #13a055;
+  transform: scale(1.05);
+}
