@@ -1394,3 +1394,7 @@ section .container {
   background-color: #13a055;
   transform: scale(1.05);
 }
+
+.text-align-start {
+  text-align: start !important;
+}
