@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secret Santa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Secret Santa</h1>
+  <div class="container">
+    <form id="participant-form">
+      <input type="text" id="name" placeholder="Nume Participant" required>
+      <input type="email" id="email" placeholder="Email Participant" required>
+      <button type="submit">Adaugă Participant</button>
+    </form>
+    <ul id="participant-list"></ul>
+    <button id="generate-pairs">Generează și Trimite Emailuri</button>
+    <div id="status-messages"></div>
+  </div>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
